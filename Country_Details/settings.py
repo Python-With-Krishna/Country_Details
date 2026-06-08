@@ -27,10 +27,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     "country-details-1.onrender.com",
-    "localhost",
-    "127.0.0.1",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://country-details-1.onrender.com",
+]
 
 # Application definition
 
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Country_Details.urls'
@@ -119,6 +122,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS=[BASE_DIR/'static']
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
