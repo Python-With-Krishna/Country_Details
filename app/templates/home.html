@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="main-container">
+    <div class="card">
+        <h2 class="title">Country Details App</h2>
+        <form method="post" class="search-box">
+            {% csrf_token %}
+            <input type="text" name="country" placeholder="Enter Country Name" required>
+            <button type="submit">Search</button>
+        </form>
+        {% if data %}
+            <div class="country-details">
+                <h3>{{ data.name.common }}</h3>
+
+                <p><strong>Capital:</strong>
+                    {% if data.capital %}
+                        {{ data.capital.0 }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </p>
+
+                <p><strong>Population:</strong> {{ data.population }}</p>
+                <p><strong>Region:</strong> {{ data.region }}</p>
+                <p><strong>Area:</strong> {{ data.area }} km²</p>
+
+                <p><strong>Currencies:</strong>
+                    {% for code, currency in data.currencies.items %}
+                        {{ currency.name }} ({{ currency.symbol }})
+                    {% endfor %}
+                </p>
+
+    <div class="image-container">
+    {% if data.coatOfArms.png %}
+        <img src="{{ data.coatOfArms.png }}" class="coat-of-arms">
+    {% endif %}
+
+    {% if data.flags.png %}
+        <img src="{{ data.flags.png }}" class="flag">
+    {% endif %}
+</div>
+
+</div>
+
+            </div>
+            {% endif %}
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    width: 420px;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.title {
+    margin-bottom: 25px;
+    color: #1e3c72;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #2a5298;
+    box-shadow: 0 0 5px rgba(42, 82, 152, 0.4);
+}
+
+.search-box button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #2a5298;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #1e3c72;
+    transform: scale(1.05);
+}
+
+.country-details {
+    margin-top: 20px;
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.country-details h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2a5298;
+}
+
+.country-details p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.coat-of-arms {
+    max-width: 100%;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.flag {
+    width: 100px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+
+.flag:hover,
+.coat-of-arms:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+}
